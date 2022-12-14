@@ -1,4 +1,4 @@
-const {body} = require("express-validation")
+const {body} = require("express-validator")
 
 const photoInsertValidation = () => {
     return [
