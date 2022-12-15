@@ -22,7 +22,6 @@ export const register = createAsyncThunk("auth/register",
         }
 
         return data
-
     })
 
     export const authSlice = createSlice({
@@ -33,13 +32,15 @@ export const register = createAsyncThunk("auth/register",
                 state.loading = false
                 state.error = false
                 state.success = false
-            }
+            },
         },
         extraReducers: (builder) => {
-            builder.addCase(register.pending, (state) => {
+            builder
+            .addCase(register.pending, (state) => {
                 state.loading = true
                 state.error = false
-            }).addCase(register.fulfilled, (state, action) => {
+            })
+            .addCase(register.fulfilled, (state, action) => {
                 state.loading = false
                 state.success = true
                 state.error = null
@@ -50,8 +51,8 @@ export const register = createAsyncThunk("auth/register",
                 state.error = action.payload
                 state.user = null
             })
-        }
+        },
     })
 
-    export const {reset} = authSlice.actions
+    export const { reset } = authSlice.actions
     export default authSlice.reducer
