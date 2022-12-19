@@ -43,11 +43,6 @@ export const userSlice = createSlice({
                 state.error = null
                 state.user = action.payload
             })
-            .addCase(profile.rejected, (state, action) => {
-                state.loading = false
-                state.error = action.payload
-                state.user = null
-            })
     }
 })
 
