@@ -35,7 +35,8 @@ const updateProfile = async(data, token) => {
 }
 
 const userService = {
-    profile
+    profile,
+    updateProfile,
 }
 
 export default userService
