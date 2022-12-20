@@ -70,9 +70,9 @@ const Profile = () => {
     await dispatch(updateProfile(formData));
 
     setTimeout(() => {
-      dispatch(resetMessage());
-    }, 2000);
-  };
+      dispatch(resetMessage())
+    }, 2000)
+  }
 
   const handleFile = (e) => {
     // image preview
