@@ -14,7 +14,6 @@ const initialState = {
 export const publishPhoto = createAsyncThunk(
     "photo/publish",
     async(photo, thunkAPI) => {
-
         const token = thunkAPI.getState().auth.user.token
 
         const data = await photoService.publishPhoto(photo, token)
@@ -63,7 +62,6 @@ export const deletePhoto = createAsyncThunk(
 export const updatePhoto = createAsyncThunk(
     "photo/update",
     async (photoData, thunkAPI) => {
-
         const token = thunkAPI.getState().auth.user.token
 
         const data = await photoService.updatePhoto(
@@ -83,9 +81,12 @@ export const updatePhoto = createAsyncThunk(
 )
 
 // Get photo by id
-export const getPhoto = createAsyncThunk("photo//getphoto",
-async(id) => {
-    const data = await photoService.getPhoto(id)
+export const getPhoto = createAsyncThunk(
+    "photo//getphoto", 
+    async(id, thunkAPI) => {
+    const token = thunkAPI.getState().auth.user.token
+
+    const data = await photoService.getPhoto(id, token)
 
     return data
 })
