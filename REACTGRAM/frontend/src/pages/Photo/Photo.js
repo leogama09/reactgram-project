@@ -29,7 +29,7 @@ const Photo = () => {
     (state) => state.photo
   );
 
-  const [commentText, setCommentText] = useState();
+  const [commentText, setCommentText] = useState("");
 
   // Load photo data
   useEffect(() => {
