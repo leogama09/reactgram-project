@@ -121,8 +121,8 @@ const getPhotos = async (token) => {
 };
 
 // Search photos by title
-const searchPhotos = async (query) => {
-  const config = requestConfig("GET");
+const searchPhotos = async (query, token) => {
+  const config = requestConfig("GET", null, token);
 
   try {
     const res = await fetch(api + "/photos/search?q=" + query, config)

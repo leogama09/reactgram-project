@@ -53,6 +53,11 @@ const Search = () => {
             </Link>
           </div>
         ))}
+        {photos && photos.length === 0 && (
+          <h2 className="no-photos">
+            Não foram encontrados resultados para sua busca...
+          </h2>
+        )}
     </div>
   );
 };
