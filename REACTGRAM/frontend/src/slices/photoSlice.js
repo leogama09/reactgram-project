@@ -107,7 +107,7 @@ export const like = createAsyncThunk("photo/like", async (id, thunkAPI) => {
 export const comment = createAsyncThunk(
   "photo/comment",
   async (photoData, thunkAPI) => {
-    const token = thunkAPI.getState().auth.user.token;
+    const token = thunkAPI.getState().auth.user.token
 
     const data = await photoService.comment(
       { comment: photoData.comment },
@@ -125,10 +125,15 @@ export const comment = createAsyncThunk(
 );
 
 // Get all photos
-export const getPhotos = createAsyncThunk("photo/getall", async () => {
-  const data = await photoService.getPhotos();
+export const getPhotos = createAsyncThunk(
+    "photo/getall", 
+    async (_, thunkAPI) => {
 
-  return data;
+        const token = thunkAPI.getState().auth.user.token
+
+        const data = await photoService.getPhotos(token);
+
+        return data;
 });
 
 // Search photos by title
