@@ -60,7 +60,7 @@ const Photo = () => {
   };
 
   if (loading) {
-    return <p>Carregando...</p>;
+    return <p>Loading...</p>;
   }
 
   return (
@@ -78,13 +78,13 @@ const Photo = () => {
             <form onSubmit={handleComment}>
               <input
                 type="text"
-                placeholder="Insira seu comentário..."
+                placeholder="Enter your comment..."
                 onChange={(e) => setCommentText(e.target.value)}
                 value={commentText || ""}
               />
-              <input type="submit" value="Enviar" />
+              <input type="submit" value="Send" />
             </form>
-            {photo.comments.length === 0 && <p>Não há comentários...</p>}
+            {photo.comments.length === 0 && <p>There are no comments...</p>}
             {photo.comments.map((comment) => (
               <div className="comment" key={comment.comment}>
                 <div className="author">

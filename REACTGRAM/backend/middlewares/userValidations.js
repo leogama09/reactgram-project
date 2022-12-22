@@ -4,25 +4,25 @@ const userCreateValidation = () => {
     return [
     body("name")
         .isString()
-        .withMessage("O nome é obrigatório.")
+        .withMessage("The name is required.")
         .isLength({min: 3})
-        .withMessage("O nome precisa ter no mínimo 3 caracteres."),
+        .withMessage("The name must be at least 3 characters long."),
     body("email")
         .isString()
-        .withMessage("O e-mail é obrigatório.")
+        .withMessage("Email is required.")
         .isEmail()
-        .withMessage("Insira um e-mail válido."),
+        .withMessage("Enter a valid email."),
     body("password")
         .isString()
-        .withMessage("A senha é obrigatória.")
+        .withMessage("Password is required.")
         .isLength({ min: 5 })
-        .withMessage("A senha precisa ter no mínimo 5 caracteres."),
+        .withMessage("The password must be at least 5 characters long."),
     body("confirmPassword")
         .isString()
-        .withMessage("A confirmação de senha é obrigatória.")
+        .withMessage("Password confirmation is required.")
         .custom((value, {req}) => {
             if(value != req.body.password) {
-                throw new Error("As senhas não são iguais.")
+                throw new Error("Passwords are not the same.")
             }
             return true
         })
@@ -33,11 +33,11 @@ const loginValidation = () => {
     return [
         body("email")
             .isString()
-            .withMessage("O e-mail é obrigatório")
+            .withMessage("Email is required")
             .isEmail()
-            .withMessage("Insira em e-mail válido"),
+            .withMessage("Enter a valid email"),
         body("password")
-            .isString().withMessage("A senha é obrigatória"),
+            .isString().withMessage("Password is required"),
     ]
 }
 
@@ -47,11 +47,11 @@ const userUpdateValidation = () => {
         body("name")
             .optional()
             .isLength({min: 3})
-            .withMessage("O nome precisa de pelo menos 3 caracteres."),
+            .withMessage("The name needs at least 3 characters."),
         body("password")
             .optional()
             .isLength({min: 5})
-            .withMessage("A senha precisa ter no mínimo 5 caracteres."),
+            .withMessage("The password must be at least 5 characters long."),
     ]
 }
 

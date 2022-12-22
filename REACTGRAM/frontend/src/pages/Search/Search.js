@@ -37,25 +37,25 @@ const Search = () => {
   };
 
   if (loading) {
-    return <p>Carregando...</p>;
+    return <p>Loading...</p>;
   }
 
   return (
     <div id="search">
-      <h2>Você está buscando por: {search}</h2>
+      <h2>Are you looking for: {search}</h2>
       {photos &&
         photos.map((photo) => (
           <div key={photo._id}>
             <PhotoItem photo={photo} />
             <LikeContainer photo={photo} user={user} handleLike={handleLike} />
             <Link className="btn" to={`/photos/${photo._id}`}>
-              Ver mais
+              See more
             </Link>
           </div>
         ))}
         {photos && photos.length === 0 && (
           <h2 className="no-photos">
-            Não foram encontrados resultados para sua busca...
+            No results were found for your search...
           </h2>
         )}
     </div>

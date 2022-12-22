@@ -23,7 +23,7 @@ const register = async (req, res) => {
     const user = await User.findOne({email})
 
     if(user) {
-        res.status(422).json({errors: ["Por favor, utilize outro e-mail"]})
+        res.status(422).json({errors: ["Please use another email"]})
         return
     }
 
@@ -40,7 +40,7 @@ const register = async (req, res) => {
 
     // If user was created succesfully, return the token
     if(!newUser) {
-        res.status(422).json({errors: ["Houve um erro, por favor tente mais tarde."]})
+        res.status(422).json({errors: ["There was an error, please try again later."]})
         return
     }
 
@@ -60,13 +60,13 @@ const login = async (req, res) => {
 
     // Check if user exists
     if(!user) {
-        res.status(404).json({errors: ["Usuário não encontrado."]})
+        res.status(404).json({errors: ["User not found."]})
         return
     }
 
     // Check if password matches
     if(!(await bcrypt.compare(password, user.password))) {
-        res.status(422).json({errors: ["Senha inválida."]})
+        res.status(422).json({errors: ["Invalid password."]})
         return
     }
 
@@ -137,14 +137,14 @@ const getUserById = async(req, res) => {
 
     // Check if user exists
     if(!user) {
-        res.status(404).json({errors: ["Usuário não encontrado."]})
+        res.status(404).json({errors: ["User not found."]})
         return
     }
 
     res.status(200).json(user)
 
    } catch (error) {
-    res.status(404).json({errors: ["Usuário não encontrado."]})
+    res.status(404).json({errors: ["User not found."]})
     return
    }
 }

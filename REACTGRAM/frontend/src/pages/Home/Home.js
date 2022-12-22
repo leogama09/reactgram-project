@@ -33,7 +33,7 @@ const Home = () => {
   };
 
   if (loading) {
-    return <p>Carregando...</p>;
+    return <p>Loading...</p>;
   }
 
   return (
@@ -44,14 +44,14 @@ const Home = () => {
             <PhotoItem photo={photo} />
             <LikeContainer photo={photo} user={user} handleLike={handleLike} />
             <Link className="btn" to={`/photos/${photo._id}`}>
-              Ver mais
+              See more
             </Link>
           </div>
         ))}
       {photos && photos.length === 0 && (
         <h2 className="no-photos">
-          Ainda não há fotos publicadas,{" "}
-          <Link to={`/users/${user.userId}`}>clique aqui</Link> para começar.
+          No photos published yet,{" "}
+          <Link to={`/users/${user.userId}`}>click here</Link> to start.
         </h2>
       )}
     </div>

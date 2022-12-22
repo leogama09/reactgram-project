@@ -136,7 +136,7 @@ const Profile = () => {
   };
 
   if (loading) {
-    return <p>Carregando...</p>;
+    return <p>Loading...</p>;
   }
 
   return (
@@ -153,29 +153,29 @@ const Profile = () => {
       {id === userAuth._id && (
         <>
           <div className="new-photo" ref={newPhotoForm}>
-            <h3>Compartilhe algum momento seu:</h3>
+            <h3>Share some of your moments:</h3>
             <form onSubmit={submitHandle}>
               <label>
-                <span>Título para a foto:</span>
+                <span>Title for the photo:</span>
                 <input
                   type="text"
-                  placeholder="Insira um título"
+                  placeholder="Enter a title"
                   onChange={(e) => setTitle(e.target.value)}
                   value={title || ""}
                 />
               </label>
               <label>
-                <span>Imagem:</span>
+                <span>Image:</span>
                 <input type="file" onChange={handleFile} />
               </label>
-              {!loadingPhoto && <input type="submit" value="Postar" />}
+              {!loadingPhoto && <input type="submit" value="Post" />}
               {loadingPhoto && (
-                <input type="submit" disabled value="Aguarde..." />
+                <input type="submit" disabled value="Loading..." />
               )}
             </form>
           </div>
           <div className="edit-photo hide" ref={editPhotoForm}>
-            <p>Editando:</p>
+            <p>Editing:</p>
             {editImage && (
               <img src={`${uploads}/photos/${editImage}`} alt={editTitle} />
             )}
@@ -185,9 +185,9 @@ const Profile = () => {
                 onChange={(e) => setEditTitle(e.target.value)}
                 value={editTitle || ""}
               />
-              <input type="submit" value="Atualizar" />
+              <input type="submit" value="Update" />
               <button className="cancel-btn" onClick={handleCancelEdit}>
-                Cancelar edição
+              Cancel edit
               </button>
             </form>
           </div>
@@ -196,7 +196,7 @@ const Profile = () => {
         </>
       )}
       <div className="user-photos">
-        <h2>Fotos publicadas:</h2>
+        <h2>Published photos:</h2>
         <div className="photos-container">
           {photos &&
             photos.map((photo) => (
@@ -217,12 +217,12 @@ const Profile = () => {
                   </div>
                 ) : (
                   <Link className="btn" to={`/photos/${photo._id}`}>
-                    Ver
+                    See
                   </Link>
                 )}
               </div>
             ))}
-          {photos.length === 0 && <p>Ainda não há fotos publicadas...</p>}
+          {photos.length === 0 && <p>No photos posted yet...</p>}
         </div>
       </div>
     </div>

@@ -86,9 +86,9 @@ const Profile = () => {
 
   return (
     <div id="edit-profile">
-      <h2>Edite seus dados</h2>
+      <h2>Edit your personal data</h2>
       <p className="subtitle">
-        Adicione uma imagem de perfil, e conte mais um pouco sobre você...
+      Add a profile picture, and tell us a little more about yourself...
       </p>
       {(user.profileImage || previewImage) && (
         <img
@@ -104,35 +104,35 @@ const Profile = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Nome"
+          placeholder="Name"
           onChange={(e) => setName(e.target.value)}
           value={name || ""}
         />
         <input type="email" placeholder="E-mail" disabled value={email || ""} />
         <label>
-          <span>Imagem de Perfil:</span>
+          <span>Profile Picture:</span>
           <input type="file" onChange={handleFile} />
         </label>
         <label>
           <span>Bio:</span>
           <input
             type="text"
-            placeholder="Descrição do perfil"
+            placeholder="Profile description"
             onChange={(e) => setBio(e.target.value)}
             value={bio || ""}
           />
         </label>
         <label>
-          <span>Quer alterar sua senha?</span>
+          <span>Want to change your password?</span>
           <input
             type="password"
-            placeholder="Digite sua nova senha..."
+            placeholder="Enter your new password..."
             onChange={(e) => setPassword(e.target.value)}
             value={password || ""}
           />
         </label>
-        {!loading && <input type="submit" value="Atualizar" />}
-        {loading && <input type="submit" disabled value="Aguarde..." />}
+        {!loading && <input type="submit" value="Update" />}
+        {loading && <input type="submit" disabled value="Loading..." />}
         {error && <Message msg={error} type="error" />}
         {message && <Message msg={message} type="success" />}
       </form>

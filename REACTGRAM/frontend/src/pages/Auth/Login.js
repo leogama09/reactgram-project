@@ -40,7 +40,7 @@ const Login = () => {
   return (
     <div id="login">
       <h2>ReactGram</h2>
-      <p className="subtitle">Faça o login para ver o que há de novo.</p>
+      <p className="subtitle">Log in to see what's new.</p>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -50,16 +50,16 @@ const Login = () => {
         />
         <input
           type="password"
-          placeholder="Senha"
+          placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        {!loading && <input type="submit" value="Entrar" />}
-        {loading && <input type="submit" disabled value="Aguarde..." />}
+        {!loading && <input type="submit" value="Sign In" />}
+        {loading && <input type="submit" disabled value="Loading..." />}
         {error && <Message msg={error} type="error" />}
       </form>
       <p>
-        Não tem uma conta? <Link to="/register">Clique aqui</Link>
+      Don't have an account? <Link to="/register">Click here</Link>
       </p>
     </div>
   );

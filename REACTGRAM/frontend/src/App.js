@@ -23,7 +23,7 @@ function App() {
   const { auth, loading } = useAuth();
 
   if (loading) {
-    return <p>Carregando...</p>;
+    return <p>Loading...</p>;
   }
 
   return (

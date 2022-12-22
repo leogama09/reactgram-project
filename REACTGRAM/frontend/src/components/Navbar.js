@@ -52,7 +52,7 @@ const Navbar = () => {
         <BsSearch />
         <input
           type="text"
-          placeholder="Pesquisar"
+          placeholder="Search"
           onChange={(e) => setQuery(e.target.value)}
         />
       </form>
@@ -77,17 +77,17 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <span onClick={handleLogout}>Sair</span>
+              <span onClick={handleLogout}>Logout</span>
             </li>
           </>
         ) : (
           <>
             {" "}
             <li>
-              <NavLink to="/login">Entrar</NavLink>
+              <NavLink to="/login">Sign In</NavLink>
             </li>
             <li>
-              <NavLink to="/register">Cadastrar</NavLink>
+              <NavLink to="/register">Sign Up</NavLink>
             </li>
           </>
         )}

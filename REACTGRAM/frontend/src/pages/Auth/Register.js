@@ -44,11 +44,11 @@ const Register = () => {
   return (
     <div id="register">
       <h2>ReactGram</h2>
-      <p className="subtitle">Cadastre-se para ver as fotos dos seus amigos.</p>
+      <p className="subtitle">Sign up to see your friends photos.</p>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Nome"
+          placeholder="Name"
           onChange={(e) => setName(e.target.value)}
           value={name}
         />
@@ -60,22 +60,22 @@ const Register = () => {
         />
         <input
           type="password"
-          placeholder="Senha"
+          placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
         <input
           type="password"
-          placeholder="Confirme a senha"
+          placeholder="Confirm your password"
           onChange={(e) => setConfirmPassword(e.target.value)}
           value={confirmPassword}
         />
-        {!loading && <input type="submit" value="Cadastrar" />}
-        {loading && <input type="submit" disabled value="Aguarde..." />}
+        {!loading && <input type="submit" value="Sign Up" />}
+        {loading && <input type="submit" disabled value="Loading..." />}
         {error && <Message msg={error} type="error" />}
       </form>
       <p>
-        Já tem conta? <Link to="/login">Clique aqui</Link>
+       Have an account? <Link to="/login">Click here</Link>
       </p>
     </div>
   );
