@@ -1,5 +1,5 @@
 # reactgram-project
-A fullstack project that consists of a Instagram made with MongoDB, Redux, Node.js and Express on the backend and React/React Hooks on the frontend.
+A fullstack project that consists of a Instagram built on MongoDB, Redux, Node.js and Express on the backend and React/React Hooks on the frontend.
 
 How to open the project
 
